@@ -113,7 +113,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For inquiries or support, feel free to contact us:
 
-- **Email**: [devunlok@gmail.com](mailto:devunlok@gmail.com)
 - **GitHub Issues**: [Open an issue](https://github.com/devunlok/Unlok-Dev/issues)
 
 ## Acknowledgments

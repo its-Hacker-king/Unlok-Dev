@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { FaAngleDown } from "react-icons/fa";
 import { RiTodoLine } from "react-icons/ri";
 import { TfiWrite } from "react-icons/tfi";
 import { SiVorondesign } from "react-icons/si";
 import { IoGameController } from "react-icons/io5";
 import { TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
-
+import TodoApp from '../Todos/TodoApp';
 
 const Playground = () => {
   const [activeSection, setActiveSection] = useState('Todos');
@@ -36,7 +35,7 @@ const Playground = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Call it initially to set the correct state
+    handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -94,15 +93,7 @@ const Playground = () => {
             <hr className='opacity-50 mb-4' />
           </div>
           <div className='overflow-y-auto flex-grow'>
-            {activeSection === 'Todos' && (
-              <>
-                <span>1</span><p>Hello</p>
-                <span>2</span><p>Hello</p>
-                <span>3</span><p>Hello</p>
-                <span>4</span><p>Hello</p>
-                <span>5</span><p>Hello</p>
-              </>
-            )}
+            {activeSection === 'Todos' && <TodoApp />} 
             {activeSection === 'Coding' && (
               <textarea className='bg-transparent outline-none w-full h-full border-none'>
                 This is the Coding section.

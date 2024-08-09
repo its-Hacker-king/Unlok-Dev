@@ -2,11 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import { RiTodoLine } from "react-icons/ri";
-import { TfiWrite } from "react-icons/tfi";
+import { GrNotes } from "react-icons/gr";
 import { SiVorondesign } from "react-icons/si";
 import { IoGameController } from "react-icons/io5";
 import { TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import TodoApp from '../Todos/TodoApp';
+
+const sections = [
+  { name: 'Todos', icon: <RiTodoLine /> },
+  { name: 'Notes', icon: <GrNotes /> },
+  { name: 'Design', icon: <SiVorondesign /> },
+  { name: 'Gaming', icon: <IoGameController /> },
+];
 
 const Playground = () => {
   const [activeSection, setActiveSection] = useState('Todos');
@@ -34,37 +41,39 @@ const Playground = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener('resize', handleResize);
+    const debouncedHandleResize = debounce(handleResize, 300);
+
+    window.addEventListener('resize', debouncedHandleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', debouncedHandleResize);
   }, []);
 
-  const sections = [
-    { name: 'Todos', icon: <RiTodoLine /> },
-    { name: 'Coding', icon: <TfiWrite /> },
-    { name: 'Design', icon: <SiVorondesign /> },
-    { name: 'Gaming', icon: <IoGameController /> },
-  ];
+  const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+  };
 
   return (
-    <div className='container mx-auto h-[520px] p-4'>
+    <div className='container mx-auto h-[540px] p-4'>
       <div className='flex flex-col md:flex-row gap-4 h-full'>
         <div className={`bg-gray-800 text-white ${isCollapsed ? 'w-16' : 'w-full md:w-1/6'} rounded-lg p-4 shadow-lg flex flex-col transition-width duration-300 ease-in-out`}>
           <h1 className='text-2xl font-bold flex justify-between items-center mb-4'>
             {isMobile ? (
               <>
                 Playground
-                <FaAngleDown className="cursor-pointer" onClick={toggleDropdown} />
+                <FaAngleDown className="cursor-pointer transition-colors duration-300 hover:text-blue-400" onClick={toggleDropdown} />
               </>
             ) : (
               isCollapsed ? (
-                <TbLayoutSidebarLeftExpandFilled size={33}
-                className="cursor-pointer" onClick={toggleCollapse} />
+                <TbLayoutSidebarLeftExpandFilled size={33} className="cursor-pointer transition-colors duration-300 hover:text-blue-400" onClick={toggleCollapse} />
               ) : (
                 <>
                   Playground
-                  <MdKeyboardArrowLeft className="cursor-pointer" onClick={toggleCollapse} />
+                  <MdKeyboardArrowLeft className="cursor-pointer transition-colors duration-300 hover:text-blue-400" onClick={toggleCollapse} />
                 </>
               )
             )}
@@ -80,9 +89,12 @@ const Playground = () => {
                 }`}
                 onClick={() => handleClick(section.name)}
               >
-                {section.icon}
-                {!isCollapsed && !isMobile && <span className='ml-2'>{section.name}</span>}
-                {isMobile && <span className='ml-2'>{section.name}</span>}
+                <span
+                  className={`transition-transform duration-300 transform ${activeSection === section.name ? 'text-blue-400 scale-110' : 'hover:scale-110 hover:text-blue-400'}`}
+                >
+                  {section.icon}
+                </span>
+                <span className='ml-2'>{section.name}</span>
               </li>
             ))}
           </ul>
@@ -94,9 +106,11 @@ const Playground = () => {
           </div>
           <div className='overflow-y-auto flex-grow'>
             {activeSection === 'Todos' && <TodoApp />} 
-            {activeSection === 'Coding' && (
+            {activeSection === 'Notes' && 
+              
+            ( 
               <textarea className='bg-transparent outline-none w-full h-full border-none'>
-                This is the Coding section.
+                This is the Notes section.
               </textarea>
             )}
             {activeSection === 'Design' && <p>This is the Design section.</p>}

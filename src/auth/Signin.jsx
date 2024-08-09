@@ -35,7 +35,7 @@ const Signin = () => {
       <button className="border justify-center hover:bg-black 
       hover:border-slate-700
        items-center flex gap-1 w-72 p-2 rounded-md">Log in</button>
-      <span>Don't have an account? <Link to='/auth/signup' className='text-blue-950 underline'>Sign up</Link></span>
+      <span>Don't have an account? <Link to='/auth/signup' className='text-blue-950 underline hover:text-blue-600'>Sign up</Link></span>
     </div>
   );
 };

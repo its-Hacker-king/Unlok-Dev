@@ -45,7 +45,7 @@ const Signup = () => {
       <button className="border justify-center hover:bg-black 
       hover:border-slate-700
        items-center flex gap-1 w-72 p-2 rounded-md">Create an account</button>
-      <span>Already have an account? <Link to='/auth/signin' className="text-blue-950 underline">Sign in</Link> </span>
+      <span>Already have an account? <Link to='/auth/signin' className="text-blue-950 underline hover:text-blue-700">Sign in</Link> </span>
     </div>
   );
 };

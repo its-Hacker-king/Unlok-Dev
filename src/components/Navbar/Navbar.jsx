@@ -45,8 +45,8 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden lg:flex justify-center items-center gap-4 ml-6">
-          <Link className="text-gray-400 text-md hover:text-white" to="/Pages/components">
-            Components
+          <Link className="text-gray-400 text-md hover:text-white" to="/Pages/docs">
+            Docs
           </Link>
 
           <div className="relative" ref={dropdownRef}>
@@ -200,21 +200,40 @@ const Navbar = () => {
           &times;
         </button>
         <div className="flex flex-col items-center mt-16 space-y-6">
-          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/components" onClick={toggleMenu}>
-            Components
+          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/docs" onClick={toggleMenu}>
+            Docs
+          </Link>
+          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/product" onClick={toggleMenu}>
+            Product
           </Link>
           <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/playground" onClick={toggleMenu}>
             Playground
           </Link>
-          <Link className="text-gray-400 text-lg hover:text-white" to="/auth/signin" onClick={toggleMenu}>
+          <Link
+            to="/auth/signin"
+            className="border border-slate-500 hover:text-white text-slate-400 rounded-lg py-2 px-4"
+            onClick={toggleMenu}
+          >
             Sign In
           </Link>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 text-lg hover:text-white">
-            <FaGithub size={24} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 text-lg hover:text-white">
-            <FaXTwitter size={24} />
-          </a>
+          <div className="flex justify-around w-full px-16">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 text-3xl hover:text-white"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 text-3xl hover:text-white"
+            >
+              <FaXTwitter size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -1,11 +1,14 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  const hideNavbarAndFooter = location.pathname === '/auth/signin' || location.pathname === '/auth/signup';
+  const hideNavbarAndFooter =
+    location.pathname === "/auth/signin" ||
+    location.pathname === "/auth/signup" ||
+    location.pathname === "/Pages/playground";
 
   return (
     <>

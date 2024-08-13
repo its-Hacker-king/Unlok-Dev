@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import { IoInfinite } from "react-icons/io5";
 import { HiColorSwatch, HiChatAlt2 } from "react-icons/hi";
 import { FaXTwitter } from "react-icons/fa6";
@@ -37,15 +40,21 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar flex justify-between items-center w-full border-b-[1px] border-opacity-100 p-2 pl-9 pr-9 relative">
+    <nav
+      className="navbar flex p-2
+    justify-between items-center w-full border-b-[1px] px-10 relative"
+    >
       <div className="flex items-center gap-3">
-        <Link className="flex items-center justify-center gap-2" to="/">
+        <Link className="flex items-center justify-center gap-1" to="/">
           <img width={44} src={Logo} alt="Logo" />
-          <h1 className="text-white text-[20px] font-bold">Unlok Dev</h1>
+          <h1 className="text-white text-[25px] font-semibold">Unlok Dev</h1>
         </Link>
 
         <div className="hidden lg:flex justify-center items-center gap-4 ml-6">
-          <Link className="text-gray-400 text-md hover:text-white" to="/Pages/docs">
+          <Link
+            className="text-gray-400 text-md hover:text-white"
+            to="/Pages/docs"
+          >
             Docs
           </Link>
 
@@ -56,12 +65,16 @@ const Navbar = () => {
             >
               Product <MdOutlineKeyboardArrowDown />
             </button>
+
             {isProductDropdownOpen && (
               <div className="absolute cursor-pointer left-0 mt-3 w-[800px] bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] p-4 rounded-lg shadow-lg z-10">
                 <div className="grid grid-cols-3 gap-4">
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <IoInfinite size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <IoInfinite
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -74,7 +87,10 @@ const Navbar = () => {
 
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <HiColorSwatch size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <HiColorSwatch
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -87,7 +103,10 @@ const Navbar = () => {
 
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <HiChatAlt2 size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <HiChatAlt2
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -100,7 +119,10 @@ const Navbar = () => {
 
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <FaRegChartBar size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <FaRegChartBar
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -113,7 +135,10 @@ const Navbar = () => {
 
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <IoInfinite size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <IoInfinite
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -126,7 +151,10 @@ const Navbar = () => {
 
                   <div className="flex items-center m-4">
                     <div className="mr-4">
-                      <IoInfinite size={24} className="transition-transform hover:scale-150 hover:text-slate-700" />
+                      <IoInfinite
+                        size={24}
+                        className="transition-transform hover:scale-150 hover:text-slate-700"
+                      />
                     </div>
                     <div>
                       <h3 className="flex items-center text-center text-white font-bold">
@@ -141,21 +169,28 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link className="text-gray-400 text-md hover:text-white" to="/Pages/playground">
+          <Link
+            className="text-gray-400 text-md hover:text-white"
+            to="/Pages/playground"
+          >
             Playground
           </Link>
         </div>
       </div>
 
       <ul className="hidden lg:flex gap-4 justify-center items-center">
-        <div className="input-search border-2 border-opacity-80 border-slate-500 rounded-md flex justify-around items-center hover:bg-slate-400 hover:bg-opacity-10 focus:border-slate-50 focus:border-opacity-15">
+        <div className="input-search bg-transparent border-2 border-opacity-80 border-slate-500 rounded-lg flex justify-around items-center  hover:bg-opacity-10 focus:border-slate-50 focus:border-opacity-15">
           <input
             type="text"
-            className="cursor-pointer bg-transparent rounded-md p-[8px] flex items-center justify-center w-[200px] text-sm outline-none"
+            className="cursor-pointer hover:text-white
+             bg-transparent rounded-md p-[8px] flex items-center justify-center w-[200px] text-sm outline-none"
             placeholder="Search documentation..."
           />
-          <span className="mr-2 items-center p-0.5 rounded cursor-pointer bg-slate-800">
-            ⌘<span className="justify-center text-sm p-0.5 text-slate-300">K</span>
+          <span className="mr-1 items-center p-0.5 rounded cursor-pointer bg-slate-800">
+            ⌘
+            <span className="justify-center text-sm p-0.5 text-slate-300">
+              K
+            </span>
           </span>
         </div>
         <li>
@@ -165,7 +200,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="text-gray-400 text-[30px] hover:text-white"
           >
-            <FaGithub size={24}/>
+            <FaGithub size={24} />
           </a>
         </li>
         <li>
@@ -186,7 +221,10 @@ const Navbar = () => {
         </Link>
       </ul>
 
-      <button onClick={toggleMenu} className="block lg:hidden text-gray-400 text-3xl hover:text-white">
+      <button
+        onClick={toggleMenu}
+        className="block lg:hidden text-gray-400 text-3xl hover:text-white"
+      >
         <CiMenuFries />
       </button>
 
@@ -196,17 +234,32 @@ const Navbar = () => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out z-50`}
       >
-        <button onClick={toggleMenu} className="absolute top-4 right-4 text-white text-2xl">
+        <button
+          onClick={toggleMenu}
+          className="absolute top-4 right-4 text-white text-2xl"
+        >
           &times;
         </button>
         <div className="flex flex-col items-center mt-16 space-y-6">
-          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/docs" onClick={toggleMenu}>
+          <Link
+            className="text-gray-400 text-lg hover:text-white"
+            to="/Pages/docs"
+            onClick={toggleMenu}
+          >
             Docs
           </Link>
-          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/product" onClick={toggleMenu}>
+          <Link
+            className="text-gray-400 text-lg hover:text-white"
+            to="/Pages/product"
+            onClick={toggleMenu}
+          >
             Product
           </Link>
-          <Link className="text-gray-400 text-lg hover:text-white" to="/Pages/playground" onClick={toggleMenu}>
+          <Link
+            className="text-gray-400 text-lg hover:text-white"
+            to="/Pages/playground"
+            onClick={toggleMenu}
+          >
             Playground
           </Link>
           <Link
